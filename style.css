@@ -1,0 +1,17 @@
+.row {
+    border: solid 1px black;
+}
+
+#repeatable > button {
+    color: white;
+    font-weight: bold;
+    background-color: #d9534f;
+    padding: 4px 15px;
+    border-radius: 2px;
+    margin: 0;
+    border: 0;
+}
+#repeatable:last-of-type > button {
+    background-color: #5cb85c;
+    content: "  +  ";
+}
