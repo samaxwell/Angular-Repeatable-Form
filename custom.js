@@ -11,9 +11,11 @@ angular.module('MyApp', [])
         },
         function(errResponse) {
             console.error('Error fetching messages :\'(')
+            self.messages = [
+                {from: 'Sean', message: 'Failed to get messages'}
+            ]
         }
     );
-
 
 
     /* Add or Remove lines in the form. */
@@ -24,5 +26,15 @@ angular.module('MyApp', [])
         else {
             self.messages.splice(self.messages.indexOf(item), 1);
         }
+    }
+
+
+    self.submit = function() {
+        $http.post('http://localhost:8080/api/message/add', 
+                   self.messages
+        )
+        .then(
+            // Do something... confirm success ?
+        );
     }
 }]);
