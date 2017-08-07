@@ -1,22 +1,23 @@
 angular.module('MyApp', [])
-.controller('MyCtrl', [function() {
+.controller('MyCtrl', ['$http', function($http) {
     var self = this;
 
-    self.message = "Howdy!"
+    self.messages = [ ]
 
-    self.messages = [
-        {from: 'Sean' , message: 'Whats up'},
-        {from: 'Katie' , message: 'Hello again'},
-        {from: 'Mom' , message: 'Hi from mom'}
-    ]
+    /* Populate messages array from Server */
+    $http.get('http://localhost:8080/api/message/all').then(
+        function(response) {
+                self.messages = response.data;
+        },
+        function(errResponse) {
+            console.error('Error fetching messages :\'(')
+        }
+    );
 
 
-    self.addMessage = function() {
-        self.messages.push({from: '', message: ''});
-    }
 
-    /* */
-    self.getDetails = function(item) {
+    /* Add or Remove lines in the form. */
+    self.addOrRemoveMessage = function(item) {
         if (self.messages.indexOf(item) == (self.messages.length-1)) {
             self.messages.push({from: '', message: ''});
         }

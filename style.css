@@ -1,17 +1,21 @@
-.row {
+/*.row {
     border: solid 1px black;
-}
+}*/
+/*.col-md-5,
+.col-md-2 {
+    border: dashed 1px blue;
+}*/
 
-#repeatable > button {
+#repeatable > div > button {
     color: white;
     font-weight: bold;
     background-color: #d9534f;
     padding: 4px 15px;
     border-radius: 2px;
-    margin: 0;
+    margin-bottom: 2px;
     border: 0;
 }
-#repeatable:last-of-type > button {
+#repeatable:last-of-type > div > button {
     background-color: #5cb85c;
     content: "  +  ";
 }

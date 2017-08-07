@@ -13,18 +13,29 @@
     <div class="container">
         <!-- ROW -->
         <div class="row">
-            <!-- COL -->
+            
             <!--<div class="col-md-12">-->
                 <div id="repeatable" ng-repeat="message in ctrl.messages">
-                    From {{message.from}} <input type="text" ng-model="message.from">
-                    Message: {{message.message}} <input type="text" ng-model="message.message">
-                    index [{{$index}}]
-                    <button type="button" ng-click="ctrl.getDetails(message)">  -  </button>
+                    <!-- COL -->
+                    <div class="col-md-5">
+                        From: {{message.from}} <input type="text" ng-model="message.from">
+                    </div>
+                    <!--/ COL -->
+                    <!-- COL -->
+                    <div class="col-md-5">
+                        Message: {{message.message}} <input type="text" ng-model="message.message">
+                    </div>
+                    <!-- COL -->
+                    <!--/ COL -->
+                    <div class="col-md-2">
+                        <button type="button" ng-click="ctrl.addOrRemoveMessage(message)">  -  </button>
+                    </div>
+            <!--/ COL -->
                 </div>
-                <button type="button" class="btn btn-success"  ng-click="ctrl.addMessage()">  +  </button>
             <!--</div>-->
             <!--/ COL -->
 
+            <button type="button" class="btn btn-success">Submit</button>
         </div>
         <!--/ ROW -->
     </div>
